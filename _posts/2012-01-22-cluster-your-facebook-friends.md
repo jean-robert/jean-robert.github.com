@@ -18,4 +18,4 @@ Here is the full code to create the chart above:
 
 <script src="https://gist.github.com/1657558.js?file=friendscluster.R"></script>
 
-
+Enjoy
