@@ -10,7 +10,7 @@ Last week, I came across two interesting posts by Romain François and Petr Sime
 
 As coincidence would have it, I also came across an older introductory post about social network analysis ([Grey’s Anatomy Network of Sexual Relations](http://www.babelgraph.org/wp/?p=1)) which could actually complement quite well the two posts above.
 
-Using the [igraph](http://cran.r-project.org/web/packages/igraph/index.html) package, it is very easy to use the [Girvan-Newman algorithm](http://en.wikipedia.org/wiki/Girvan%E2%80%93Newman_algorithm) to automatically detect your clusters of friends.
+Using the [igraph](http://cran.r-project.org/web/packages/igraph/index.html) package, it is very easy to use the [Girvan-Newman algorithm](http://en.wikipedia.org/wiki/Girvan%E2%80%93Newman_algorithm) to automatically detect your groups/clusters of friends. The code below show how to display the names of your friends on the plot.
 
 ![friendscluster](/resources/friendscluster.png)
 
