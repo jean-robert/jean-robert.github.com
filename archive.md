@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Josh Suereth
+title: All Posts
 ---
 
 
@@ -12,4 +12,3 @@ title: Josh Suereth
 {% endfor %}     
 </ul>
 
-![Scala In Depth](http://www.manning.com/suereth/suereth_cover150.jpg) Scala In Depth is going through the final production phases!  Expect the remaining chapters soon.

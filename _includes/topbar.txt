@@ -3,12 +3,10 @@
     <div class="topbar" >
       <div class="topbar-inner">
         <div class="container">
-          <a class="brand" href="/">Josh Suereth</a>
+          <a class="brand" href="/">Jean-Robert</a>
           <ul class="nav">
            <li><a href="/archive.html">Blog</a></li>
-           <li><a href="http://www.typesafe.com">Typesafe, Inc.</a></li>
-           <li><a href="http://www.manning.com/suereth">Scala In Depth</a></li>
-           <li><a href="http://www.scalatypes.com">Scalatypes</a></li>
+	   <li><a href="/wishlist.html">Wish list</a></li>
            <li><a href="/contact.html">Contact</a></li>
           </ul>
         </div>

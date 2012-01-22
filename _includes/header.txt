@@ -4,9 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <meta name="verify-v1" content="Wk/82PweoQgGS2hKzvuOfgyruzN6SP12BtUz0l0KJQM=" />
    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
-   <meta name="author" content="Josh Suereth" />
+   <meta name="author" content="Jean-Robert" />
 
    <!-- Homepage CSS -->
    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
@@ -16,6 +15,6 @@
    <link rel="stylesheet" href="/css/custom.css" type="text/css" />
 
    <!-- RSS Feeds -->
-   <link href="{{site.url}}/feed.rss" rel="alternate" type="application/rss+xml" title="Recent posts on jsuereth.com" />
+   <link href="{{site.url}}/feed.rss" rel="alternate" type="application/rss+xml" title="Recent posts on jean-robert.github.com" />
 </head>
 <body>
