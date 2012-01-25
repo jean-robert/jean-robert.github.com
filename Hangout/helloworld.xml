@@ -1,0 +1,12 @@
+<Module>
+  <ModulePrefs title="Starter App">
+    <Require feature="rpc"/>
+  </ModulePrefs>
+  <Content type="html">
+    <![CDATA[
+<!-- The hangout API JavaScript. Always include this first -->
+<script src="//hangoutsapi.appspot.com/static/hangout.js"></script>
+Hello world!
+    ]]>
+  </Content>
+</Module>
