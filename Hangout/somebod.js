@@ -80,7 +80,7 @@ function hideAllOverlays() {
 /** Initialize our constants, build the overlays */
 function createOverlays() {
   var somebod = gapi.hangout.av.effects.createImageResource(
-      'http://jean-robert.github.com/Hangout/somebod.png');
+      'http://jean-robert.github.com/Hangout/topHat.png');
   overlays['somebod'] = topHat.createFaceTrackingOverlay(
       {'trackingFeature':
        gapi.hangout.av.effects.FaceTrackingFeature.NOSE_ROOT,
@@ -91,7 +91,7 @@ function createOverlays() {
   maxScale['somebod'] = 1.5;
 
   var nobod = gapi.hangout.av.effects.createImageResource(
-      'http://jean-robert.github.com/Hangout/nobod.png');
+      'http://jean-robert.github.com/Hangout/topHat.png');
   overlays['nobod'] = mono.createFaceTrackingOverlay(
       {'trackingFeature':
        gapi.hangout.av.effects.FaceTrackingFeature.NOSE_ROOT,
