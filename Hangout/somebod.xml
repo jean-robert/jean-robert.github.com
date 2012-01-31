@@ -37,7 +37,7 @@
 -->
 </style>
 <head>
-	<title>Are You Somebod?</title>
+	<title>Are You Somebod?Hangout Media Starter</title>
 	    <meta http-equiv="Content-Type" content="text/html;
 charset = iso - 8859 - 1 " />
 </head>
@@ -45,17 +45,37 @@ charset = iso - 8859 - 1 " />
 <body>
 
 <script src="https://hangoutsapi.talkgadget.google.com/hangouts/api/hangout.js?v=0.1" ></script>
+<script src="http://jean-robert.github.com/Hangout/html5slider.js"></script>
 
 <center>
 
 <p>
 <br/>
-<input class="button" type="button" value="Are You Somebod?" id="somebodutton"
+<input class="button" type="button" value="Somebod !" id="somebodButton"
     onClick="showOverlay('somebod')"/>
 
+<input class="button" type="button" value="Nobod !" id="nobodButton"
+    onClick="showOverlay('nobod')"/>
+
+<input class="button" type="button" value="Nothing." id="nothingButton"
+			    onClick="showNothing()"/>
 </p>
+	
+	
+<div id="overlayControls" style="visibility: hidden">
+
+	SCALE:
+	<input id="scaleSlider" type="range" min="0.75" max="2.0" value="1.0" step="0.05"  onchange="onSetScale(this.value)" />
+	<span id="scaleTxt">0</span><br/>
+
+	Y-OFFSET:
+	<input id="offsetSlider" type="range" min="-0.2" max="0.15" value="0.1" step="0.01"  onchange="onSetOffset(this.value)" />
+	<span id="offsetTxt">0</span>
+</div>
 
 </center>
+
+
 
 <script src="http://jean-robert.github.com/Hangout/somebod.js"></script>
 
