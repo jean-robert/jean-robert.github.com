@@ -3,7 +3,7 @@ layout: post
 title: Multiple progress bars
 ---
 
-It is pretty easy to monitor the progress of a long loop in R using the original [txtProgressBar](http://stat.ethz.ch/R-manual/R-patched/library/utils/html/txtProgressBar.html) function provided with the utils package.
+It is pretty easy to monitor the progress of a long loop in R using the original [txtProgressBar](http://stat.ethz.ch/R-manual/R-patched/library/utils/html/txtProgressBar.html) function in the utils package.
 
 It works like this:
 {% highlight r %}
@@ -24,6 +24,7 @@ plot.progress <- function(percent) {
 	      rect(0, 0.1, percent*100, 0.9, col='blue')
 	      title(paste('Progress: ', round(percent*100,2), '%', sep=''))
 }
+plot.progress(0.8711)
 {% endhighlight %}
 
 ![singleprogressbar](/resources/singleprogressbar.png)
@@ -40,6 +41,7 @@ plot.progress <- function(...)	{
   }
   title('Progress...')
 }
+plot.progress(0.7543, 0.6918, 0.3454)
 {% endhighlight %}
 
 ![multiprogressbar](/resources/multiprogressbar.png)
