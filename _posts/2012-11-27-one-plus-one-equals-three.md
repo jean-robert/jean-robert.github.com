@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 1 plus 1 equals 3, the proof in R
+title: 1 plus 1 equals 3
 ---
 
 Discussing with some friends the other day, one of them mentioned a supposedly famous quote from Einstein saying that 1 + 1 = 3. Despite my best efforts, Google couldn't find that particular quote. Anyway, we were trying to understand how could have Einstein come up with that. Our answer was that the proposition "1 + 1 = 3" is true when "+" corresponds to the concatenate operator and "=" corresponds to the equality between a base-2 number and a base-10 number. 
