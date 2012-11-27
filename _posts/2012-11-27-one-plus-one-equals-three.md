@@ -35,4 +35,3 @@ In a more generic way, you can define any operator you like using "%":
 {% endhilight %}
 
 Oh, and just in case, don't forget to `rm('+')`...
-
