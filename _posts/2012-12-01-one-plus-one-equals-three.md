@@ -27,10 +27,10 @@ This won't work since you are defining "+" using "+"... Hence an infinite recurs
 If you use the first function defined above, you get the answer that everyone expected: 1+1=3. Even better, you can write any number in base 2, like 1+1+0+1 and it will return the base-10 answer: 13.
 
 
-```
+{% highlight r %}
 1 + 1
 1 + 1 + 0 + 1
-```
+{% endhighlight %}
 
 In a more generic way, you can define any operator you like using "%":
 
