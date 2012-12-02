@@ -8,37 +8,39 @@ Discussing with some friends the other day, one of them mentioned a supposedly f
 Jokes aside, this is a good opportunity to remember how nice R is when it comes to overriding primitive operators. Indeed, the "+" operator in R works well with many various types (numeric, vector, matrices, ...), but you can also make it work the way you want. In our case, we want the "+" operator to concatenate and compute in base 2. This can be done as follow:
 
 
-{% highlight r %}
+```
 "+" <- function(e1, e2) {
     sum(c(e1 * 2, e2))
 }
-{% endhighlight %}
+```
 
 A pitfall to avoid is to define your function like this:
 
-{% highlight r %}
+```
 "+" <- function(e1, e2) {
     e1 * 2 + e2
 }
-{% endhiglight %}
+```
 
 This won't work since you are defining "+" using "+"... Hence an infinite recursion that R will quickly remind you of. Instead, using the `sum` function (another primitive) allows you to use the correct "+" when suming up.
 
 If you use the first function defined above, you get the answer that everyone expected: 1+1=3. Even better, you can write any number in base 2, like 1+1+0+1 and it will return the base-10 answer: 13.
 
 
-{% highlight r %}
-1 + 1          ## [1] 3
-1 + 1 + 0 + 1  ## [1] 13
-{% endhighlight %}
+```
+1 + 1
+## [1] 3
+1 + 1 + 0 + 1
+## [1] 13
+```
 
 In a more generic way, you can define any operator you like using "%":
 
-{% highlight r %}
+```
 "%foo%" <- function(e1, e2) {
     sum(c(e1 * 3, e2))
 }
-{% endhighlight %}
+```
 
 Oh, and just in case, do not forget to `rm('+')`...
 
