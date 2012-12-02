@@ -29,9 +29,7 @@ If you use the first function defined above, you get the answer that everyone ex
 
 ```
 1 + 1
-## [1] 3
 1 + 1 + 0 + 1
-## [1] 13
 ```
 
 In a more generic way, you can define any operator you like using "%":
