@@ -6,9 +6,18 @@
           <a class="brand" href="/">Jean-Robert</a>
           <ul class="nav">
            <li><a href="/archive.html">Blog</a></li>
+	   <li class="dropdown">
+	       <a class="dropdown-toggle" data-toggle="dropdown" href="#">Projects<b class="caret"></b></a>
+	       <ul class="dropdown-menu">
+	       	   <li><a href="/pfv.html">Prime Factorization Visualization</a></li>
+		   <li><a href="/metro.html">Metro Meeting Point</a></li>
+		   <li><a href="/floodit.html">Flood It</a></li>
+	       </ul>
+	   </li>
 	   <li><a href="/wishlist.html">Wish list</a></li>
            <li><a href="/contact.html">Contact</a></li>
           </ul>
         </div>
       </div>
     </div>
+
