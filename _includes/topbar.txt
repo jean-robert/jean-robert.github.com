@@ -1,5 +1,5 @@
-   <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
+   <div class="topbar">
+      <div class="topbar-inner">
         <div class="container">
 	  <div class="row">
 	    <div class="span10 offset1">
