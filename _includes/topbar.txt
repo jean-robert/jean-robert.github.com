@@ -1,24 +1,31 @@
-    <!-- Topbar
-    ================================================== -->
-    <div class="navbar">
+   <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="/">Jean-Robert</a>
-	  <div class="nav-collapse">
-	       <ul class="nav">
-	       	   <li><a href="/archive.html">Blog</a></li>
-		   <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Projects<b class="caret"></b></a>
-		       <ul class="dropdown-menu">
+	  <div class="row">
+	    <div class="span10 offset1">
+	      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </a>
+	      <a class="brand" href="/">Jean-Robert</a>
+	      <div class="nav-collapse">
+	        <ul class="nav">                               
+		  <li class="active"><a href="/archive.html">Blog</a></li>
+		  <li class="dropdown">
+		    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Projects<b class="caret"></b></a>
+		    <ul class="dropdown-menu">
 		       	   <li><a href="/pfv.html">Prime Factorization Visualization</a></li>
 			   <li><a href="/metro.html">Metro Meeting Point</a></li>
 			   <li><a href="/floodit.html">Flood It</a></li>
-		       </ul>
-		   </li>
+		    </ul>
+		  </li>
 		   <li><a href="/wishlist.html">Wish list</a></li>
 		   <li><a href="/contact.html">Contact</a></li>
-	       </ul>
-	     </div>
-      	</div>
+		</ul>
+	      </div>
+	    </div>
+	  </div>
+        </div>
       </div>
     </div>
-
