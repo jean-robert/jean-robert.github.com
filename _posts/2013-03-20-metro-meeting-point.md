@@ -8,8 +8,8 @@ title: Optimal Meeting Point on the Paris Metro
 When you live in Paris, chances are you are (home or work) very close to a metro station, so when you want to meet with some friends, you usually end up picking another metro station as a meeting point. Yet, finding the optimal place to meet can easily become a complex problem considering the dense network we have. Now that the [RATP](http://www.ratp.fr) (the public transport operator in Paris) had made some of their datasets available, this sounds like a good job to be solved with [R](http://www.r-project.org) and [Shiny](http://www.rstudio.org/shiny).
 
 In the spirit of the current open data movement, the RATP has made available a number of datasets under the [Etalab](http://www.data.gouv.fr/Licence-Ouverte-Open-Licence) license, and among them, two are of a particular interest for us:
-- ["Correspondances stations/lignes sur le réseau RATP"](http://data.ratp.fr/fr/les-donnees/fiche-de-jeu-de-donnees/dataset/correspondances-stationslignes-sur-le-reseau-ratp.html), which gives us all the stops (metro, RER, buses, and tram, but we will stick with the metro here...), along with the lines that they are associated with, in the format <station ID, line, station type>
-- ["Positions géographiques des stations du réseau RATP"](http://data.ratp.fr/fr/les-donnees/fiche-de-jeu-de-donnees/dataset/positions-geographiques-des-stations-du-reseau-ratp.html), which gives us the geographical positions of all stations, in the format <station ID, longitude, latitude, station name, city, station type>
+- ["Correspondances stations/lignes sur le réseau RATP"](http://data.ratp.fr/fr/les-donnees/fiche-de-jeu-de-donnees/dataset/correspondances-stationslignes-sur-le-reseau-ratp.html), which gives us all the stops (metro, RER, buses, and tram, but we will stick with the metro here...), along with the lines that they are associated with, in the format "station ID, line, station type"
+- ["Positions géographiques des stations du réseau RATP"](http://data.ratp.fr/fr/les-donnees/fiche-de-jeu-de-donnees/dataset/positions-geographiques-des-stations-du-reseau-ratp.html), which gives us the geographical positions of all stations, in the format "station ID, longitude, latitude, station name, city, station type"
 The following lines of code allows you to import and readily use the datasets:
 
 {% highlight r %}
@@ -30,9 +30,9 @@ There are two technical problems worth highlighting:
 The solutions used here for these two problems are as follow:
 - We boldly assume that stop *A* is connected to stops *B* and *C* if and only if stops *B* and *C* are the closest stops physically from *A*, *A*, *B*, *C* are on the same line, and *B* is different from *C*. That could work in a wonderful world. Here, this assumption is surprisingly not bad at all, but manual corrections are still needed (the worst line being line 10 with 5 errors around Auteuil and Michel Ange, but otherwise no more than 1/2 errors per line).
 - We boldly assume that the time taken from stop *A* to stop *B* can be decomposed into three parts:
-* A stopping time (train slows/accelerates, doors open/close, people get in/out), about 1 minute
-* A connection time (only when changing lines), about 5 minutes
-* The actual transportation time (physically between *A* and *B*), proportional to the geographical distance from *A* to *B*, about 100 minute per degree. Since stops are referenced with longitude and latitude, the physical distance between the two is in degrees...
+1. A stopping time (train slows/accelerates, doors open/close, people get in/out), about 1 minute
+2. A connection time (only when changing lines), about 5 minutes
+3. The actual transportation time (physically between *A* and *B*), proportional to the geographical distance from *A* to *B*, about 100 minute per degree. Since stops are referenced with longitude and latitude, the physical distance between the two is in degrees...
 The calibration of the model has been done manually with some trial and error, it is a rough estimate and not perfect at all, but that does the job.
 
 So here we are, equipped with our distance matrix *D* between any two stops of the RATP metro network, ready to identify the optimal stop to meet when people come from, say, Barbès-Rochechouart, Bastille, Dupleix, and Pernety.
