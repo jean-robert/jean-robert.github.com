@@ -5,7 +5,7 @@ title: Optimal Meeting Point on the Paris Metro
 
 **tl;dr**: Play with the app [here](/metro.html)
 
-When you live in Paris, chances are you are (home or work) very close to a metro station, so when you want to meet with some friends, you usually end up picking another metro station as a meeting point. Yet, finding the optimal place to meet can easily become a complex problem considering the dense network we have. Now that the [RATP](http://www.ratp.fr) (the public transport operator in Paris) had made some of their datasets available, this sounds like a good job to be solved with [R](http://www.r-project.org) and [Shiny](http://www.rstudio.org/shiny).
+When you live in Paris, chances are you are (home or work) very close to a metro station, so when you want to meet with some friends, you usually end up picking another metro station as a meeting point. Yet, finding the optimal place to meet can easily become a complex problem considering the dense network we have. Now that the [RATP](http://www.ratp.fr) (the public transport operator in Paris) had made some of their datasets available, this sounds like a good job to be solved with [R](http://www.r-project.org) and [Shiny](http://www.rstudio.com/shiny).
 
 In the spirit of the current open data movement, the RATP has made available a number of datasets under the [Etalab](http://www.data.gouv.fr/Licence-Ouverte-Open-Licence) license, and among them, two are of a particular interest for us:
 - ["Correspondances stations/lignes sur le réseau RATP"](http://data.ratp.fr/fr/les-donnees/fiche-de-jeu-de-donnees/dataset/correspondances-stationslignes-sur-le-reseau-ratp.html), which gives us all the stops (metro, RER, buses, and tram, but we will stick with the metro here...), along with the lines that they are associated with, in the format "station ID, line, station type"
@@ -45,5 +45,5 @@ getStationFromID(target)
 {% endhighlight %}
 
 That's actually great because Odéon is a cool place to get together and have a drink. Thinking about it, it would actually be useful to integrate a penalty for metro stops without any nice bar around...  
-In case you have a similar problem one of these days, consider using [that page](/metro.html), where a [Shiny](http://www.rstudio.org/shiny) version of the app is available, along with a ggplot2 chart. I know this should be done in [D3](http://d3js.org/) for more interactivity, but that's on my todo for sure! 
+In case you have a similar problem one of these days, consider using [that page](/metro.html), where a [Shiny](http://www.rstudio.com/shiny) version of the app is available, along with a ggplot2 chart. I know this should be done in [D3](http://d3js.org/) for more interactivity, but that's on my todo for sure! 
 
