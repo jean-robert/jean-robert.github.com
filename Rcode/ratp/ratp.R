@@ -4,7 +4,7 @@ if(F) {
   arret_ligne <- read.csv("ratp_arret_ligne.csv", header=F, sep="#",
                           col.names=c("ID","Ligne","Type"),
                           stringsAsFactors=F)
-  
+
   arret_positions <- read.csv("ratp_arret_graphique.csv", header=F, sep="#",
                               col.names=c("ID","X","Y","Nom","Ville","Type"),
                               stringsAsFactors=F)
@@ -14,7 +14,7 @@ if(F) {
   sapply(stations, function(s) subset(arret_positions, ID==s)$Nom)
 }
   getIDFromStation <- function(stations) {
-    sapply(stations, function(s) subset(subset(arret_positions, Type=="metro"), 
+    sapply(stations, function(s) subset(subset(arret_positions, Type=="metro"),
                                         gsubv(c("â","'","è","ô","é"), c("a", " ", "e", "o","e"), Nom)==gsubv(c("â","'","è","ô","é"), c("a", " ", "e", "o","e"), s))$ID)
   }
 
@@ -26,7 +26,7 @@ if(F) {
   u.stations.name <- as.character(getStationFromID(u.stations))
   # dealing here with encoding which can cause problem
   u.stations.name.enc <- gsubv(c("â","'","è","ô","é"), c("a", " ", "e", "o","e"), u.stations.name)
-  
+
   # make simple graph to create the network
   getEdges <- function() {
     vertices <- u.stations
@@ -36,7 +36,7 @@ if(F) {
     for(l in u.lignes) {
       # check all stations and retrieve coordinates
       stations <- subset(arret_ligne, Ligne==l)$ID
-      P <- with(subset(arret_positions,ID %in% stations), cbind(ID,X,Y))  
+      P <- with(subset(arret_positions,ID %in% stations), cbind(ID,X,Y))
       # roll on stations to find next and previous
       for(s in stations) {
         sID <- which(P[,1]==s)
@@ -49,11 +49,11 @@ if(F) {
             sum(((P[P[,1]==closest,-1]-P[P[,1]==secondClosest,-1]))^2))
           edges[as.character(s),as.character(secondClosest)] <- edges[as.character(secondClosest),as.character(s)] <- 1
       }
-    }  
+    }
     return(edges)
   }
   edges <- getEdges()
-  
+
   # manually adjust
   manuallyAdjustEdges <- function(edges) {
     connecRemove <- function(edges, from, to) {
@@ -108,18 +108,18 @@ if(F) {
     return(edges)
   }
   edges <- manuallyAdjustEdges(edges)
-  
+
   # get lines
   getEdgesLines <- function() {
     edges.l <- matrix(0,nrow=length(vertices),ncol=length(vertices),
                       dimnames=list(vertices, vertices))
     for(i in colnames(edges.l))
-      for(j in names(which(edges[i,]!=0)))      
+      for(j in names(which(edges[i,]!=0)))
         edges.l[i,j] <- paste(which(u.lignes %in% names(which(table(as.character(subset(arret_ligne, ID %in% c(i,j))$Ligne))==2))), collapse="|")
     return(edges.l)
   }
   edges.l <- getEdgesLines()
-  
+
   # manually adjust lines
   manuallyAdjustLines <- function(edges.l) {
     # adjust
@@ -139,7 +139,7 @@ if(F) {
     return(edges.l)
   }
   edges.l <- manuallyAdjustLines(edges.l)
-  
+
   # make geographical distances as edges
   getGeoDist <- function() {
     edges.w <- matrix(0,nrow=length(vertices),ncol=length(vertices),
@@ -147,39 +147,39 @@ if(F) {
     for(i in colnames(edges))
       for(j in names(which(edges[i,]!=0)))
         edges.w[i, j] <- with(subset(arret_positions, ID %in% c(i,j)), sqrt(diff(X)*diff(X)+diff(Y)*diff(Y)))
-    return(edges.w)  
+    return(edges.w)
   }
   edges.w <- getGeoDist()
-  
+
   # compute distance matrix / this takes time
-  require(multicore)
-  message(Sys.time(), ' > starting')  
-  allDists <- do.call(rbind, mclapply(u.stations, function(s1) {
+  # require(multicore)
+  message(Sys.time(), ' > starting')
+  allDists <- do.call(rbind, lapply(u.stations, function(s1) {
     do.call(rbind, lapply(u.stations, function(s2) {
-      data.frame(s1=as.character(s1), 
-                 s2=as.character(s2), 
+      data.frame(s1=as.character(s1),
+                 s2=as.character(s2),
                  d=dijkstra(edges, as.character(s1), as.character(s2), output="dist",
                             GEOTOTIME=100, CONNECTIONTIME=5, STOPTIME=1),
                  stringsAsFactors=F)
       }))
     }))
   distmat <- as.matrix(cast(allDists, s1 ~ s2, value="d"))
-  message(Sys.time(), ' > ending')  
-  
+  message(Sys.time(), ' > ending')
+
   # find a target based on friends
   findTarget <- function(friends, method) {
     if(method=="centroid") {
       target <- names(which.min(sapply(colnames(distmat), function(s) {
         sum((distmat[friends,s]-kmeans(as.dist(distmat[friends, friends]),
                                        centers=1)$centers)^2)
-      })))      
+      })))
     }
     if(method=="minmax") {
       target <- names(which.min(apply(distmat[,friends], 1, max)))
     }
     return(target)
   }
-  
+
   # saving image
   save.image("ratp.Rdata")
   } else {
